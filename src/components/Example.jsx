@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Example.module.css';
-const MyForm = () => {
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
+const MyForm = ({ users, addUser, updateUser }) => {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -13,28 +16,35 @@ const MyForm = () => {
     state: '',
     favoriteColor: ''
   });
-  
+
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      const user = users.find(user => user.id === parseInt(id));
+      if (user) {
+        setFormData(user);
+      }
+    }
+  }, [id, users]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({  firstname: '',
-      lastname: '',
-      password: '',
-      email: '',
-      hobby: '',
-      age: '',
-      city: '',
-      country: '',
-      state: '',
-      favoriteColor: ''
-     });
+    if (id) {
+      updateUser({ ...formData, id: parseInt(id) });
+    } else {
+      addUser({ ...formData, id: Date.now() });
+    }
+    navigate('/users');
   };
+ 
 
   return (
     <div className={`${styles.container}`} >
@@ -166,6 +176,9 @@ const MyForm = () => {
           />
         </div>
         <button type="submit" className={`${styles.submitButton}`}>Submit</button>
+        <button type="submit" className={`${styles.submitButton}`}>
+          {id? 'Update ' : 'Add '}
+        </button>
       </form>
     </div>
   );

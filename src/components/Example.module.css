@@ -18,12 +18,12 @@
   display: flex;
   margin: 5px 5px;
   padding: 5px 5px;
-  /* flex-direction: column; */
+ 
 }
 .formGroup label{
-  /* display: flex; */
+
   margin: 5px 5px;
-  /* flex-direction: column; */
+
 }
 
 
@@ -36,3 +36,14 @@
   cursor: pointer;
   font-size: 18px;
 }
+.table {
+  width: 100%;
+border: 2px solid black;}
+
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  .container {
+    padding: 20px;
+  }
