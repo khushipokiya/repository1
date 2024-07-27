@@ -30,6 +30,10 @@ const App = () => {
         <h1>User Management</h1>
         <Routes>
           <Route
+            path="/"
+            element={<UserTable users={users} />}
+          />
+          <Route
             path="/users"
             element={<UserTable users={users} />}
           />

@@ -3,7 +3,7 @@ import styles from './Example.module.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const MyForm = ({ users, addUser, updateUser }) => {
+const MyForm = ({ users, addUser, updateUser}) => {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
