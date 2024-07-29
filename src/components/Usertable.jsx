@@ -22,6 +22,7 @@ const UserTable = ({ users, deleteUser }) => {
             <th>State</th>
             <th>Favorite Color</th>
             <th>Actions</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -43,9 +44,10 @@ const UserTable = ({ users, deleteUser }) => {
                   <Link to={`/edit/${user.id}`} >Edit</Link>
                   </td>
                   <td>
-                  <Link to={`/delete/${user.id}`} >Delete</Link>
+                  {/* <Link to={`/delete/${user.id}`} >Delete</Link>
+                  */}
+                  <button onClick={deleteUser} >Delete</button>
                   </td>
-                  {/* <button  className={`${styles.deleteButton}`}>Delete</button> */}
                 
               </tr>
             ))
