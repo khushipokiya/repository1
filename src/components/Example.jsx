@@ -42,7 +42,7 @@ const handleSubmit = (e) => {
     } else {
       addUser({ ...formData, id: Date.now() });
     }
-    navigate('/users');
+    navigate('/');
   };
  
 

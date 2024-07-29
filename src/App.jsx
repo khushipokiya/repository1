@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 
 import MyForm from './components/Example'
 import UserTable from './components/Usertable'
@@ -31,16 +29,16 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<UserTable users={users} />}
+            element={<UserTable users={users} deleteUser={deleteUser} />}
           />
-          <Route
+          {/* <Route
             path="/users"
             element={<UserTable users={users} />}
           />
           <Route
             path="/delete"
-            element={<UserTable users={users} deleteUser={deleteUser} />}
-          />
+            element={<UserTable users={users} />}
+          /> */}
           <Route
             path="/add"
             element={<MyForm users={users} addUser={addUser} updateUser={updateUser} />}
