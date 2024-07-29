@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Example.module.css';
 
 const UserTable = ({ users, deleteUser }) => {
+  
    
   return (
     <div className={`${styles.container}`}>
@@ -44,9 +45,9 @@ const UserTable = ({ users, deleteUser }) => {
                   <Link to={`/edit/${user.id}`} >Edit</Link>
                   </td>
                   <td>
-                  {/* <Link to={`/delete/${user.id}`} >Delete</Link>
-                  */}
-                  <button onClick={deleteUser} >Delete</button>
+                  {/* <Link to={`/`}  onClick={deleteUser} s>Delete</Link> */}
+                 
+                  <button   onClick={() => deleteUser(user.id)}>Delete</button>
                   </td>
                 
               </tr>

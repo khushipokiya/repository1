@@ -29,7 +29,7 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<UserTable users={users} deleteUser={deleteUser} />}
+            element={<UserTable users={users} deleteUser={deleteUser}/>}
           />
           {/* <Route
             path="/users"
