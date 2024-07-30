@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Example.module.css';
 
-const UserTable = ({ users, deleteUser }) => {
+const UserTable = ({ users, deleteUser}) => {
+ 
   
    
   return (
@@ -30,31 +31,29 @@ const UserTable = ({ users, deleteUser }) => {
           {users.length > 0 ? (
             users.map(user => (
               <tr key={user.id}>
-                <td>{user.firstname || 'N/A'}</td>
-                <td>{user.lastname || 'N/A'}</td>
-                <td>{user.password || 'N/A'}</td>
-                <td>{user.confirmPassword || 'N/A'}</td>
-                <td>{user.email || 'N/A'}</td>
-                <td>{user.hobby || 'N/A'}</td>
-                <td>{user.age || 'N/A'}</td>
-                <td>{user.city || 'N/A'}</td>
-                <td>{user.country || 'N/A'}</td>
-                <td>{user.state || 'N/A'}</td>
-                <td>{user.favoriteColor || 'N/A'}</td>
-                <td>
-                  <Link to={`/edit/${user.id}`} >Edit</Link>
-                  </td>
-                  <td>
-                  {/* <Link to={`/`}  onClick={deleteUser} s>Delete</Link> */}
-                 
-                  <button   onClick={() => deleteUser(user.id)}>Delete</button>
-                  </td>
+                <td data-label="Firstname">{user.firstname || 'N/A'}</td>
+                <td data-label="Lastname">{user.lastname || 'N/A'}</td>
+                <td data-label="Password">{user.password || 'N/A'}</td>
+                <td data-label="Confirm Password">{user.confirmPassword || 'N/A'}</td>
+                <td data-label="Email">{user.email || 'N/A'}</td>
+                <td data-label="Hobby">{user.hobby || 'N/A'}</td>
+                <td data-label="Age">{user.age || 'N/A'}</td>
+                <td data-label="City">{user.city || 'N/A'}</td>
+                <td data-label="Country">{user.country || 'N/A'}</td>
+                <td data-label="State">{user.state || 'N/A'}</td>
+                <td data-label="Favorite Color">{user.favoriteColor || 'N/A'}</td>
+                <td data-label="Actions">
+                  <Link to={`/edit/${user.id}`}>Edit</Link>
+                </td>
+                <td data-label="Actions">
+                  <button onClick={() => deleteUser(user.id)}>Delete</button>
+                </td>
                 
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="12">No users found</td>
+              <td colSpan="13">No users found</td>
             </tr>
           )}
         </tbody>

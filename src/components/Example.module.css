@@ -1,7 +1,119 @@
-/* LoginForm.module.css */
+/* Example.module.css */
 
+/* Container styles */
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+/* Link styles */
+a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
 
+a:hover {
+  text-decoration: underline;
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f4f4f4;
+}
+
+.table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Button styles */
+button {
+  background-color: #007bff;
+  border: none;
+  color: #050505;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .table th,
+  .table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .table th {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #f4f4f4;
+    z-index: 1;
+  }
+
+  .table tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -10,9 +122,6 @@
   border-radius: 2px;
   margin: 10px;
 
- 
- 
- 
 }
 .formGroup {
   display: flex;
@@ -36,14 +145,3 @@
   cursor: pointer;
   font-size: 18px;
 }
-.table {
-  width: 100%;
-border: 2px solid black;}
-
-  .table th, .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  .container {
-    padding: 20px;
-  }

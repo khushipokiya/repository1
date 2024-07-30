@@ -12,9 +12,9 @@ const MyForm = ({ users, addUser, updateUser}) => {
     hobby: '',
     age: '',
     city: '',
-    country: '',
-    state: '',
-    favoriteColor: ''
+    country: 'USA', // Default value
+    state: 'Gujrat', // Default value
+    favoriteColor: '#000000' // Default value
   });
 
   const navigate = useNavigate();
@@ -143,7 +143,7 @@ const handleSubmit = (e) => {
         <div className={`${styles.formGroup}`}>
           <label htmlFor="country">Country:</label>
 
-          <select name="country" id="country"onChange={handleChange} >
+          <select value={formData.country} name="country" id="country"onChange={handleChange} >
             <option value={formData.country} >USA</option>
             <option value={formData.country} >India</option>
             <option value={formData.country} >Canada</option>
@@ -156,13 +156,13 @@ const handleSubmit = (e) => {
         <div className={`${styles.formGroup}`} >
           <label htmlFor="country">State:</label>
 
-          <select name="State" id="State">
-            <option value={formData.state}>Gujrat</option>
-            <option value={formData.state}>maharashtra</option>
-            <option value={formData.state}>MP</option>
-            <option value={formData.state}>Uttarpradesh</option>
-            <option value={formData.state}>J&K</option>
-            <option value={formData.state}>Rajsthan</option>
+          <select value={formData.state} name="State" id="State"onChange={handleChange}>
+            <option value="Gujrat">Gujrat</option>
+            <option value="maharashtra">maharashtra</option>
+            <option value="MP">MP</option>
+            <option value="Uttarpradesh">Uttarpradesh</option>
+            <option value="J&K">J&K</option>
+            <option value="Rajsthan">Rajsthan</option>
           </select>
         </div>
         <div className={`${styles.formGroup}`}>
