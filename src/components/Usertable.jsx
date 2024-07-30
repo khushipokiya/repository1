@@ -41,7 +41,8 @@ const UserTable = ({ users, deleteUser}) => {
                 <td data-label="City">{user.city || 'N/A'}</td>
                 <td data-label="Country">{user.country || 'N/A'}</td>
                 <td data-label="State">{user.state || 'N/A'}</td>
-                <td data-label="Favorite Color"> <div
+                <td data-label="Favorite Color"> 
+                  <div
                     className={styles.colorPreview}
                     style={{ backgroundColor: user.favoriteColor || '#000000' }}
                   /></td>

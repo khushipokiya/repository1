@@ -12,9 +12,9 @@ const MyForm = ({ users, addUser, updateUser}) => {
     hobby: '',
     age: '',
     city: '',
-    country: 'USA', // Default value
-    state: 'Gujrat', // Default value
-    favoriteColor: '#000000' // Default value
+    country: '', // Default value
+    state: '', // Default value
+    favoriteColor: '' // Default value
   });
 
   const navigate = useNavigate();
@@ -138,33 +138,42 @@ const handleSubmit = (e) => {
             onChange={handleChange}
             required
           />
-
         </div>
+        
         <div className={`${styles.formGroup}`}>
           <label htmlFor="country">Country:</label>
-
-          <select value={formData.country} name="country" id="country"onChange={handleChange} >
-            <option value={formData.country} >USA</option>
-            <option value={formData.country} >India</option>
-            <option value={formData.country} >Canada</option>
-            <option value={formData.country} >china</option>
-            <option value={formData.country} >Pakistan</option>
-            <option value={formData.country} >Nepal</option>
-
+          <select
+            id="country"
+            name="country"
+            value={formData.country}
+            onChange={handleChange}
+          >
+            <option value="USA">USA</option>
+            <option value="India">India</option>
+            <option value="Canada">Canada</option>
+            <option value="China">China</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Nepal">Nepal</option>
           </select>
         </div>
-        <div className={`${styles.formGroup}`} >
-          <label htmlFor="country">State:</label>
 
-          <select value={formData.state} name="State" id="State"onChange={handleChange}>
+        <div className={`${styles.formGroup}`}>
+          <label htmlFor="state">State:</label>
+          <select
+            id="state"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+          >
             <option value="Gujrat">Gujrat</option>
-            <option value="maharashtra">maharashtra</option>
+            <option value="Maharashtra">Maharashtra</option>
             <option value="MP">MP</option>
-            <option value="Uttarpradesh">Uttarpradesh</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
             <option value="J&K">J&K</option>
-            <option value="Rajsthan">Rajsthan</option>
+            <option value="Rajasthan">Rajasthan</option>
           </select>
         </div>
+
         <div className={`${styles.formGroup}`}>
           <label htmlFor="favoriteColor">Favorite Color:</label>
           <div className={styles.colorPreview} style={{ backgroundColor: formData.favoriteColor }} />
