@@ -1,9 +1,8 @@
-// import React, { useState } from 'react';
-import styles from './Example.module.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import styles from './Example.module.css';
 
-const MyForm = ({ users, addUser, updateUser}) => {
+const MyForm = ({ users, addUser, updateUser }) => {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -12,10 +11,13 @@ const MyForm = ({ users, addUser, updateUser}) => {
     hobby: '',
     age: '',
     city: '',
-    country: '', // Default value
-    state: '', // Default value
+    country: 'USA', // Default value
+    state: 'Gujrat', // Default value
     favoriteColor: '' // Default value
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [errors, setErrors] = useState({})
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -29,22 +31,42 @@ const MyForm = ({ users, addUser, updateUser}) => {
     }
   }, [id, users]);
 
+  const validate = () => {
+    const newErrors = {};
+
+    // Check if passwords match
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
-const handleSubmit = (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (id) {
-      updateUser({ ...formData, id: parseInt(id) });
-    } else {
-      addUser({ ...formData, id: Date.now() });
+
+    // Validate the form
+    if (validate()) {
+      // If validation passes, proceed with form submission
+      if (id) {
+        updateUser({ ...formData, id: parseInt(id) });
+      } else {
+        addUser({ ...formData, id: Date.now() });
+      }
+      navigate('/');
     }
-    navigate('/');
   };
- 
 
   return (
     <div className={`${styles.container}`} >
@@ -72,28 +94,49 @@ const handleSubmit = (e) => {
             required
           />
         </div>
+
+        {/* password */}
         <div className={`${styles.formGroup}`}>
-          <label htmlFor="password" >Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <label htmlFor="password">Password:</label>
+          <div className={`${styles.passwordContainer}`}>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <i
+              className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'} ${styles.passwordToggle}`}
+              onClick={() => setShowPassword(!showPassword)}
+            ></i>
+          </div>
         </div>
+
+        {/* confirmPassword */}
         <div className={`${styles.formGroup}`}>
-          <label htmlFor="confirmpassword"  > Confirm password:</label>
-          <input
-            type="password"
-            id="pwd"
-            name="confirmpassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <div className={`${styles.passwordContainer}`}>
+            <input
+              type={showConfirmPassword ? 'text' : 'password'}
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+            <i
+              className={`fas ${showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'} ${styles.passwordToggle}`}
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            ></i>
+          </div>
+          {errors.confirmPassword && (
+            <p className={`${styles.error}`}>{errors.confirmPassword}</p>
+          )}
         </div>
+
+        {/* Email: */}
         <div className={`${styles.formGroup}`}>
           <label htmlFor="email" >Email:</label>
           <input
@@ -105,6 +148,7 @@ const handleSubmit = (e) => {
             required
           />
         </div>
+        {/* hobby */}
         <div className={`${styles.formGroup}`}>
           <label htmlFor="hobby">Hobby:</label>
           <input
@@ -139,7 +183,7 @@ const handleSubmit = (e) => {
             required
           />
         </div>
-        
+
         <div className={`${styles.formGroup}`}>
           <label htmlFor="country">Country:</label>
           <select
@@ -177,7 +221,7 @@ const handleSubmit = (e) => {
         <div className={`${styles.formGroup}`}>
           <label htmlFor="favoriteColor">Favorite Color:</label>
           <div className={styles.colorPreview} style={{ backgroundColor: formData.favoriteColor }} />
-          
+
           <input
             type="color"
             id="favoriteColor"
@@ -188,7 +232,7 @@ const handleSubmit = (e) => {
         </div>
         <button type="submit" className={`${styles.submitButton}`}>Submit</button>
         <button type="submit" className={`${styles.submitButton}`}>
-          {id? 'Update ' : 'Add '}
+          {id ? 'Update ' : 'Add '}
         </button>
       </form>
     </div>

@@ -4,10 +4,27 @@
 .container {
   padding: 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  text-align: center;
+  
+  
+}
+.header {
+  font-size: 2.5rem; 
+  font-weight: bold;
+  color: #2c3e50; 
+  margin: 2px 0; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+  font-family: 'Arial', sans-serif; 
 }
 
-/* Link styles */
+h1 {
+  margin: 0; 
+  
+}
+
+
+
 a {
   text-decoration: none;
   color: #007bff;
@@ -79,10 +96,10 @@ button:hover {
   }
 
   .table th {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
-    background: #da4c4c;
+    background: #dee2e6;
     z-index: 1;
   }
 
@@ -150,4 +167,27 @@ button:hover {
   border-radius: 4px;
   cursor: pointer;
   font-size: 18px;
+}
+/* Example.module.css */
+.error {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 0.5em;
+}
+/* Example.module.css */
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordContainer input {
+  padding-right: 30px; /* Space for the eye icon */
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.2em;
 }

@@ -25,20 +25,12 @@ const App = () => {
   return (
     <Router>
       <div className={`${styles.container}`} >
-        <h1>User Management</h1>
+        <h1 className={`${styles.header}`}>User Management</h1>
         <Routes>
           <Route
             path="/"
             element={<UserTable users={users} deleteUser={deleteUser}/>}
           />
-          {/* <Route
-            path="/users"
-            element={<UserTable users={users} />}
-          />
-          <Route
-            path="/delete"
-            element={<UserTable users={users} />}
-          /> */}
           <Route
             path="/add"
             element={<MyForm users={users} addUser={addUser} updateUser={updateUser} />}
