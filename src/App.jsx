@@ -8,8 +8,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 const App = () => {
   const [users, setUsers] = useState([]);
  
-      
- 
   const addUser = (user) => {
     setUsers([...users, user]);
   };

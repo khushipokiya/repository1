@@ -1,14 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Example.module.css';
+import { useNavigate } from 'react-router-dom';
 
-const UserTable = ({ users, deleteUser}) => {
- 
+const UserTable = ({ users, deleteUser }) => {
+  const navigate = useNavigate();
+
+  // Function to handle navigation to the add user page
+  const handleAddUser = () => {
+    navigate('/add');
+  }; 
+
   
-   
+  
   return (
     <div className={`${styles.container}`}>
-       <Link to="/add">Add New User</Link>
+     <button
+        onClick={handleAddUser}
+        className={`${styles.addButton}`}
+      >
+        Add New User
+      </button>
       <table className={`${styles.table}`}>
         <thead>
           <tr>
@@ -41,7 +53,7 @@ const UserTable = ({ users, deleteUser}) => {
                 <td data-label="City">{user.city || 'N/A'}</td>
                 <td data-label="Country">{user.country || 'N/A'}</td>
                 <td data-label="State">{user.state || 'N/A'}</td>
-                <td data-label="Favorite Color"> 
+                <td data-label="Favorite Color">
                   <div
                     className={styles.colorPreview}
                     style={{ backgroundColor: user.favoriteColor || '#000000' }}
@@ -52,7 +64,7 @@ const UserTable = ({ users, deleteUser}) => {
                 <td data-label="Actions">
                   <button onClick={() => deleteUser(user.id)}>Delete</button>
                 </td>
-                
+
               </tr>
             ))
           ) : (
@@ -63,7 +75,7 @@ const UserTable = ({ users, deleteUser}) => {
         </tbody>
       </table>
     </div>
-    
+
   );
 };
 
