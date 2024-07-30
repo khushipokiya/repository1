@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const UserTable = ({ users, deleteUser }) => {
   const navigate = useNavigate();
 
-  // Function to handle navigation to the add user page
+ 
   const handleAddUser = () => {
     navigate('/add');
   }; 
