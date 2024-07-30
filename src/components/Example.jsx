@@ -167,6 +167,8 @@ const handleSubmit = (e) => {
         </div>
         <div className={`${styles.formGroup}`}>
           <label htmlFor="favoriteColor">Favorite Color:</label>
+          <div className={styles.colorPreview} style={{ backgroundColor: formData.favoriteColor }} />
+          
           <input
             type="color"
             id="favoriteColor"
