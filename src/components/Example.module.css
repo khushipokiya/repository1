@@ -1,6 +1,5 @@
 /* Example.module.css */
 
-/* Container styles */
 .container {
   padding: 20px;
   max-width: 1200px;
@@ -35,7 +34,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Table styles */
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -61,7 +60,6 @@ a:hover {
   background-color: #f9f9f9;
 }
 
-/* Button styles */
 button {
   background-color: #007bff;
   border: none;
@@ -80,7 +78,7 @@ button:hover {
   background-color: #9fbbd8;
 }
 
-/* Responsive table */
+
 @media (max-width: 768px) {
   .table {
     display: block;
@@ -168,13 +166,13 @@ button:hover {
   cursor: pointer;
   font-size: 18px;
 }
-/* Example.module.css */
+
 .error {
   color: red;
   font-size: 0.875em;
   margin-top: 0.5em;
 }
-/* Example.module.css */
+
 .passwordContainer {
   position: relative;
   display: flex;
@@ -182,7 +180,7 @@ button:hover {
 }
 
 .passwordContainer input {
-  padding-right: 30px; /* Space for the eye icon */
+  padding-right: 30px; 
 }
 
 .passwordToggle {
@@ -194,20 +192,20 @@ button:hover {
 
 
 .addButton {
-  background-color: #f4f4f4; /* Green background */
-  border: none; /* Remove borders */
-  color: rgb(27, 26, 26); /* White text */
-  padding: 10px 20px; /* Some padding */
+  background-color: #f4f4f4; 
+  border: none; 
+  color: rgb(27, 26, 26); 
+  padding: 10px 20px; 
   text-align: center; 
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Inline element with block properties */
-  font-size: 16px; /* Larger text */
-  margin: 10px 0; /* Margin around the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px; 
+  margin: 10px 0; 
+  cursor: pointer; 
+  border-radius: 5px; 
 }
 
 .addButton:hover {
-  background-color: #9fbbd8; /* Darker green on hover */
+  background-color: #9fbbd8; 
 }
 
