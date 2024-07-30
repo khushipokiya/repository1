@@ -8,7 +8,7 @@ const UserTable = ({ users, deleteUser}) => {
    
   return (
     <div className={`${styles.container}`}>
-      <Link to="/add">Add New User</Link>
+       <Link to="/add">Add New User</Link>
       <table className={`${styles.table}`}>
         <thead>
           <tr>
@@ -63,6 +63,7 @@ const UserTable = ({ users, deleteUser}) => {
         </tbody>
       </table>
     </div>
+    
   );
 };
 

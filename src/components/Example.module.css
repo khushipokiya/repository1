@@ -4,7 +4,7 @@
 .container {
   padding: 20px;
   max-width: 1200px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   text-align: center;
   
   
@@ -23,9 +23,8 @@ h1 {
   
 }
 
-
-
 a {
+  font-size: 1.0rem; 
   text-decoration: none;
   color: #007bff;
   font-weight: bold;
@@ -96,7 +95,7 @@ button:hover {
   }
 
   .table th {
-    /* position: absolute; */
+    /* position:relative; */
     top: 0;
     left: 0;
     background: #dee2e6;
@@ -112,7 +111,7 @@ button:hover {
   .table td {
     text-align: right;
     padding-left: 50%;
-    position: relative;
+    position:relative;
   }
 
   .table td::before {
